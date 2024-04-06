@@ -2,15 +2,15 @@ public class Bill {
 
     Reservation reservation;
     double billAmount;
-    boolean billPaid;
 
-    public Bill(Reservation reservation, double billAmount, boolean billPaid) {
+    public Bill(Reservation reservation) {
         this.reservation = reservation;
-        this.billAmount = billAmount;
-        this.billPaid = billPaid;
+        computeBill(reservation);
+        System.out.println("Bill Generated");
     }
 
-    public int computBill() {
-        return 100;
+    public double computeBill(Reservation reservation) {
+        this.billAmount = 100;
+        return billAmount;
     }
 }

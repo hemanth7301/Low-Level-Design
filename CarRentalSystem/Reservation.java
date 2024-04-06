@@ -19,6 +19,7 @@ public class Reservation {
         this.user = user;
         this.vehicle = vehicle;
         this.reservationType = reservationType;
+        System.out.println("Reservation done");
         return this.reservationId;
     }
 }

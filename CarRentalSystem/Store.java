@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Product.Vehicle;
+import Product.VehicleType;
 
 public class Store {
     int storeId;
@@ -9,7 +10,11 @@ public class Store {
     Location Location;
     List<Reservation> reservations = new ArrayList<>();
 
-    public List<Vehicle> getVehicles() {
+    Store() {
+        this.inventoryManagement = new InventoryManagement();
+    }
+
+    public List<Vehicle> getVehicles(VehicleType vehicleType) {
         return inventoryManagement.getVehicles();
     }
 
@@ -22,6 +27,10 @@ public class Store {
         reservation.reserve(user, vehicle, reservationType);
         reservations.add(reservation);
         return reservation;
+    }
+
+    public boolean completeReservation(int reservationId) {
+        return true;
     }
 
 }
