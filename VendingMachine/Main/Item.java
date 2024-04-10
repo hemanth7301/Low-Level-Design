@@ -1,3 +1,5 @@
+package Main;
+
 public class Item {
     ItemType itemType;
     int price;

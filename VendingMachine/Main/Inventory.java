@@ -1,32 +1,34 @@
+package Main;
+
 public class Inventory {
-    ItemShelf[] inventory;
+    ItemShelf[] shelfs;
 
     public Inventory(int itemCount) {
-        inventory = new ItemShelf[itemCount];
-        initializeInventory();
+        shelfs = new ItemShelf[itemCount];
+        initializeShelfs();
     }
 
-    public ItemShelf[] getInventory() {
-        return inventory;
+    public ItemShelf[] getShelfs() {
+        return shelfs;
     }
 
-    public void setInventory(ItemShelf[] inventory) {
-        this.inventory = inventory;
+    public void setShelfs(ItemShelf[] inventory) {
+        this.shelfs = inventory;
     }
 
-    public void initializeInventory() {
+    public void initializeShelfs() {
         int code = 101;
-        for (int i = 0; i < inventory.length; i++) {
+        for (int i = 0; i < shelfs.length; i++) {
             ItemShelf space = new ItemShelf();
             space.setCode(code);
             space.setSoldOut(true);
-            inventory[i] = space;
+            shelfs[i] = space;
             code++;
         }
     }
 
     public void additem(Item item, int code) throws Exception {
-        for (ItemShelf shelf : inventory) {
+        for (ItemShelf shelf : shelfs) {
             if (shelf.code == code) {
                 if (shelf.isSoldOut()) {
                     shelf.item = item;
@@ -39,7 +41,7 @@ public class Inventory {
     }
 
     public Item getItem(int code) throws Exception {
-        for (ItemShelf shelf : inventory) {
+        for (ItemShelf shelf : shelfs) {
             if (shelf.code == code) {
                 if (shelf.isSoldOut()) {
                     throw new Exception("Item is already Sold");
@@ -52,7 +54,7 @@ public class Inventory {
     }
 
     public void updateSoldOutItem(int code) {
-        for (ItemShelf shelf : inventory) {
+        for (ItemShelf shelf : shelfs) {
             if (shelf.code == code) {
                 shelf.setSoldOut(true);
             }

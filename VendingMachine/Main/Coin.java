@@ -1,3 +1,5 @@
+package Main;
+
 public enum Coin {
     PENNY(1),
     NICKEL(5),

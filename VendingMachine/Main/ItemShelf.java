@@ -1,3 +1,5 @@
+package Main;
+
 public class ItemShelf {
     Item item;
     boolean soldOut;
