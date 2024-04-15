@@ -52,11 +52,11 @@ public class HashMap<K, V> {
     }
 
     public void put(K key, V value) {
-        int hashCode = key.hashCode() % hashTable.length;
-        Entry node = hashTable[hashCode];
+        int index = key.hashCode() % hashTable.length;
+        Entry node = hashTable[index];
         Entry newNode = new Entry(key, value);
         if (node == null) {
-            hashTable[hashCode] = newNode;
+            hashTable[index] = newNode;
         } else {
             Entry previousNode = node;
             while (node != null) {
@@ -71,8 +71,8 @@ public class HashMap<K, V> {
     }
 
     public V get(K key) {
-        int hashCode = key.hashCode() % hashTable.length;
-        Entry node = hashTable[hashCode];
+        int index = key.hashCode() % hashTable.length;
+        Entry node = hashTable[index];
         while (node != null) {
             if (node.key == key) {
                 return (V) node.value;
