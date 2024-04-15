@@ -67,18 +67,17 @@ public class Main {
         Inventory inventory = productDeliverySystem.getInventory(warehouse);
         ProductCategory productCategoryIWantToOrder = null;
         for (ProductCategory productCategory : inventory.getProductCategories()) {
-
             if (productCategory.getCategoryName().equals("DRINKS")) {
                 productCategoryIWantToOrder = productCategory;
             }
         }
-
-        productDeliverySystem.addProductToCart(user, productCategoryIWantToOrder, 2);
-
-        Order order = productDeliverySystem.placeOrder(user, warehouse);
-
-        productDeliverySystem.checkout(order);
-
+        if (productCategoryIWantToOrder == null) {
+            System.out.println("Stock Unavailable");
+        } else {
+            productDeliverySystem.addProductToCart(user, productCategoryIWantToOrder, 2);
+            Order order = productDeliverySystem.placeOrder(user, warehouse);
+            productDeliverySystem.checkout(order);
+        }
     }
 
 }
