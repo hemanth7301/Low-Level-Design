@@ -1,13 +1,13 @@
-public class HashMap<K, V> {
+public class MyHashMap<K, V> {
     private static final int INITIAL_SIZE = 1 << 4;
     private static final int MAXIMUM_CAPACITY = 1 << 30;
     Entry[] hashTable;
 
-    HashMap() {
+    MyHashMap() {
         hashTable = new Entry[INITIAL_SIZE];
     }
 
-    HashMap(int capacity) {
+    MyHashMap(int capacity) {
         int tableSize = tableSizeFor(capacity);
         hashTable = new Entry[tableSize];
     }
@@ -62,6 +62,7 @@ public class HashMap<K, V> {
             while (node != null) {
                 if (node.key == key) {
                     node.value = value;
+                    return;
                 }
                 previousNode = node;
                 node = node.next;
@@ -83,7 +84,7 @@ public class HashMap<K, V> {
     }
 
     public static void main(String[] args) {
-        HashMap<Integer, String> map = new HashMap<>(7);
+        MyHashMap<Integer, String> map = new MyHashMap<>(7);
         map.put(1, "Hemanth");
         map.put(2, "is");
         map.put(3, "a");
